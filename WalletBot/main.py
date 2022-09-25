@@ -1,6 +1,7 @@
 import telebot
 from telebot import types
 import datetime as dt
+import time
 
 # 👉 🙏 👆 👇 😅 👋 🙌 ☺️ ❗ ️‼️ ✌️ 👌 ✊ 👨‍💻  🤖 😉  ☝️ ❤️ 💪 ✍️ 🎯  ` ⛔  ️✅ 📊📈🧮
 bot = telebot.TeleBot('5575461083:AAFUmb4VUvxf2KTFStiagWVGbGzoU-WOv2A')
@@ -92,4 +93,10 @@ def mess(message):
         bot.send_message(message.chat.id, message_text)
 
 
-bot.polling(none_stop=True)
+if __name__ == '__main__':
+    while True:
+        try:
+            bot.polling(none_stop=True)
+        except Exception as e:
+            time.sleep(3)
+            print(e)
